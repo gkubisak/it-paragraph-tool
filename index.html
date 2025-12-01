@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paragraph Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Body Paragraph Builder</h2>
+  <p>Enter your ideas below. Use the popover question marks for guidance.</p>
+
+  <div class="field-block">
+    <label>
+      Supporting Idea (Topic Sentence)
+      <span class="popover" data-pop="supportingIdea">?</span>
+    </label>
+    <textarea id="supportingIdea" class="input-field"></textarea>
+  </div>
+
+  <div class="field-block">
+    <label>
+      Evidence 1
+      <span class="popover" data-pop="evidence">?</span>
+    </label>
+    <input type="text" id="sourceTitle1" class="input-field" placeholder="Source Title">
+    <textarea id="evidence1" class="input-field" placeholder="Evidence"></textarea>
+    <textarea id="why1" class="input-field" placeholder="Why it matters"></textarea>
+  </div>
+
+  <div class="field-block">
+    <label>
+      Evidence 2
+      <span class="popover" data-pop="evidence">?</span>
+    </label>
+    <input type="text" id="sourceTitle2" class="input-field" placeholder="Source Title">
+    <textarea id="evidence2" class="input-field" placeholder="Evidence"></textarea>
+    <textarea id="why2" class="input-field" placeholder="Why it matters"></textarea>
+  </div>
+
+  <div class="field-block">
+    <label>
+      Commentary / Reasoning
+      <span class="popover" data-pop="reasoning">?</span>
+    </label>
+    <textarea id="commentary" class="input-field"></textarea>
+  </div>
+
+  <div class="field-block">
+    <label>
+      Clarity & Focus Check
+      <span class="popover" data-pop="clarity">?</span>
+    </label>
+    <textarea id="clarity" class="input-field"></textarea>
+  </div>
+
+  <button id="generateBtn">Generate Outline + Paragraph</button>
+
+  <h3>Formatted Outline</h3>
+  <div id="outlineOutput" class="output-box"></div>
+
+  <h3>Final Paragraph (Color-Coded)</h3>
+  <div id="paragraphOutput" class="output-box"></div>
+
+  <div id="popoverContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
