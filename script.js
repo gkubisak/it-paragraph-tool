@@ -8,36 +8,32 @@ function generate() {
     const w2 = document.getElementById("why2").value.trim();
     const c  = document.getElementById("commentary").value.trim();
 
-    // ---------- OUTLINE ----------
-    let outline = `
-<h3><strong>Topic Sentence</strong></h3>
-${t}
+    // OUTLINE
+    document.getElementById("outlineOutput").innerHTML = `
+        <h3>Topic Sentence</h3>
+        ${t}
 
-<h3><strong>Evidence 1</strong></h3>
-<strong>Source Title:</strong> ${s1}<br>
-<strong>Evidence:</strong> ${e1}<br>
-<strong>Why it matters:</strong> ${w1}<br>
+        <h3>Evidence 1</h3>
+        <strong>Source Title:</strong> ${s1}<br>
+        <strong>Evidence:</strong> ${e1}<br>
+        <strong>Why it matters:</strong> ${w1}<br>
 
-<h3><strong>Evidence 2</strong></h3>
-<strong>Source Title:</strong> ${s2}<br>
-<strong>Evidence:</strong> ${e2}<br>
-<strong>Why it matters:</strong> ${w2}<br>
+        <h3>Evidence 2</h3>
+        <strong>Source Title:</strong> ${s2}<br>
+        <strong>Evidence:</strong> ${e2}<br>
+        <strong>Why it matters:</strong> ${w2}<br>
 
-<h3><strong>Commentary / Reasoning</strong></h3>
-${c}
-`;
+        <h3>Commentary / Reasoning</h3>
+        ${c}
+    `;
 
-    document.getElementById("outlineOutput").innerHTML = outline;
-
-    // ---------- COLOR PARAGRAPH ----------
-    let finalPara = `
-<span style="color: blue;"><strong>${t}</strong></span> 
-<span style="color: green;">${e1}</span> 
-<span style="color: darkcyan;">${w1}</span> 
-<span style="color: green;">${e2}</span> 
-<span style="color: darkcyan;">${w2}</span> 
-<span style="color: orange;">${c}</span>
-`;
-
-    document.getElementById("output").innerHTML = finalPara;
+    // PARAGRAPH
+    document.getElementById("output").innerHTML = `
+        <span style="color: blue; font-weight: bold;">${t}</span> 
+        <span style="color: green;">${e1}</span> 
+        <span style="color: darkcyan;">${w1}</span> 
+        <span style="color: green;">${e2}</span> 
+        <span style="color: darkcyan;">${w2}</span> 
+        <span style="color: orange;">${c}</span>
+    `;
 }
