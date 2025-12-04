@@ -4,54 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IT Paragraph Builder</title>
-
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>IT Paragraph Builder</h1>
-<p>Enter your paragraph components below. Expand instructions if needed.</p>
+<p class="intro">Complete each section below. Expand the instructions if you need help.</p>
 
 <!-- Topic Sentence -->
-<details class="instructions">
-    <summary>Instructions: Topic Sentence</summary>
-    <p>State the main idea of your paragraph in one clear sentence.</p>
-</details>
-<textarea id="topic" placeholder="Topic sentence..."></textarea>
+<section>
+    <details class="instructions">
+        <summary>Topic Sentence — instructions</summary>
+        <p>State the main idea of your paragraph in one clear sentence.</p>
+    </details>
+    <textarea id="topic" placeholder="Topic sentence..."></textarea>
+</section>
 
 <!-- Evidence 1 -->
-<details class="instructions">
-    <summary>Instructions: Evidence 1</summary>
-    <p>Paste your strongest piece of evidence and include the source title and why it matters.</p>
-</details>
-<input id="source1" placeholder="Source Title 1">
-<textarea id="evidence1" placeholder="Evidence 1..."></textarea>
-<textarea id="why1" placeholder="Why this evidence matters..."></textarea>
+<section>
+    <details class="instructions">
+        <summary>Evidence 1 — instructions</summary>
+        <p>Paste your strongest piece of evidence and include the source title and why it matters.</p>
+    </details>
+
+    <input id="source1" placeholder="Source Title 1">
+    <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
+    <textarea id="why1" placeholder="Why this evidence matters..."></textarea>
+</section>
 
 <!-- Evidence 2 -->
-<details class="instructions">
-    <summary>Instructions: Evidence 2</summary>
-    <p>Paste a second strong piece of evidence, also including why it matters.</p>
-</details>
-<input id="source2" placeholder="Source Title 2">
-<textarea id="evidence2" placeholder="Evidence 2..."></textarea>
-<textarea id="why2" placeholder="Why this evidence matters..."></textarea>
+<section>
+    <details class="instructions">
+        <summary>Evidence 2 — instructions</summary>
+        <p>Paste a second strong piece of evidence, also including why it matters.</p>
+    </details>
+
+    <input id="source2" placeholder="Source Title 2">
+    <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
+    <textarea id="why2" placeholder="Why this evidence matters..."></textarea>
+</section>
 
 <!-- Commentary -->
-<details class="instructions">
-    <summary>Instructions: Commentary / Reasoning</summary>
-    <p>Explain how the evidence supports your topic sentence and connects to your thesis.</p>
-</details>
-<textarea id="commentary" placeholder="Commentary / reasoning..."></textarea>
+<section>
+    <details class="instructions">
+        <summary>Commentary / Reasoning — instructions</summary>
+        <p>Explain how the evidence supports your topic and connects to your thesis.</p>
+    </details>
 
-<button onclick="generate()">Generate Paragraph + Outline</button>
+    <textarea id="commentary" placeholder="Commentary / reasoning..."></textarea>
+</section>
 
+<button id="generateBtn" onclick="generate()">Generate Outline + Paragraph</button>
+
+<!-- OUTPUTS -->
 <h2>Formatted Outline</h2>
-<div id="outlineOutput"></div>
+<div id="outlineOutput" class="outputBox"></div>
 
 <h2>Color-Coded Final Paragraph</h2>
-<div id="output"></div>
+<div id="output" class="outputBox"></div>
+
+</div>
 
 <script src="script.js"></script>
 
