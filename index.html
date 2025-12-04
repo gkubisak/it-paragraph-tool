@@ -1,69 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Paragraph Builder</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Paragraph Builder</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    textarea, input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 12px 16px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #0b61a4;
+        color: white;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #094a7d;
+    }
+
+    #output, #outlineOutput {
+        margin-top: 25px;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #aaa;
+        background: #f9f9f9;
+        white-space: pre-wrap;
+    }
+
+    /* Collapsible instructions */
+    details.instructions {
+        background: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px 15px;
+        margin-bottom: 12px;
+    }
+
+    details.instructions summary {
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 1.05rem;
+        color: #333;
+    }
+
+    details.instructions p {
+        margin-top: 10px;
+        padding-left: 5px;
+        color: #444;
+    }
+</style>
 </head>
+
 <body>
 
-  <h2>Body Paragraph Builder</h2>
-  <p>Enter your ideas below. Use the popover question marks for guidance.</p>
+<h1>IT Paragraph Builder</h1>
+<p>Enter your paragraph components below. Instructions for each step can be expanded.</p>
 
-  <div class="field-block">
-    <label>
-      Supporting Idea (Topic Sentence)
-      <span class="popover" data-pop="supportingIdea">?</span>
-    </label>
-    <textarea id="supportingIdea" class="input-field"></textarea>
-  </div>
+<!-- Topic Sentence -->
+<details class="instructions">
+    <summary>Instructions: Topic Sentence</summary>
+    <p>State the main idea of your paragraph in one clear sentence.</p>
+</details>
+<textarea id="topic" placeholder="Topic sentence..."></textarea>
 
-  <div class="field-block">
-    <label>
-      Evidence 1
-      <span class="popover" data-pop="evidence">?</span>
-    </label>
-    <input type="text" id="sourceTitle1" class="input-field" placeholder="Source Title">
-    <textarea id="evidence1" class="input-field" placeholder="Evidence"></textarea>
-    <textarea id="why1" class="input-field" placeholder="Why it matters"></textarea>
-  </div>
+<!-- Evidence 1 -->
+<details class="instructions">
+    <summary>Instructions: Evidence 1</summary>
+    <p>Paste your strongest piece of evidence and include the source title and why it matters.</p>
+</details>
+<input id="source1" placeholder="Source Title 1">
+<textarea id="evidence1" placeholder="Evidence 1..."></textarea>
+<textarea id="why1" placeholder="Why this evidence matters..."></textarea>
 
-  <div class="field-block">
-    <label>
-      Evidence 2
-      <span class="popover" data-pop="evidence">?</span>
-    </label>
-    <input type="text" id="sourceTitle2" class="input-field" placeholder="Source Title">
-    <textarea id="evidence2" class="input-field" placeholder="Evidence"></textarea>
-    <textarea id="why2" class="input-field" placeholder="Why it matters"></textarea>
-  </div>
+<!-- Evidence 2 -->
+<details class="instructions">
+    <summary>Instructions: Evidence 2</summary>
+    <p>Paste a second strong piece of evidence, also including why it matters.</p>
+</details>
+<input id="source2" placeholder="Source Title 2">
+<textarea id="evidence2" placeholder="Evidence 2..."></textarea>
+<textarea id="why2" placeholder="Why this evidence matters..."></textarea>
 
-  <div class="field-block">
-    <label>
-      Commentary / Reasoning
-      <span class="popover" data-pop="reasoning">?</span>
-    </label>
-    <textarea id="commentary" class="input-field"></textarea>
-  </div>
+<!-- Commentary -->
+<details class="instructions">
+    <summary>Instructions: Commentary / Reasoning</summary>
+    <p>Explain how the evidence supports your topic sentence and connects to your thesis.</p>
+</details>
+<textarea id="commentary" placeholder="Commentary / reasoning..."></textarea>
 
-  <div class="field-block">
-    <label>
-      Clarity & Focus Check
-      <span class="popover" data-pop="clarity">?</span>
-    </label>
-    <textarea id="clarity" class="input-field"></textarea>
-  </div>
+<button onclick="generate()">Generate Paragraph + Outline</button>
 
-  <button id="generateBtn">Generate Outline + Paragraph</button>
+<h2>Formatted Outline</h2>
+<div id="outlineOutput"></div>
 
-  <h3>Formatted Outline</h3>
-  <div id="outlineOutput" class="output-box"></div>
+<h2>Color-Coded Final Paragraph</h2>
+<div id="output"></div>
 
-  <h3>Final Paragraph (Color-Coded)</h3>
-  <div id="paragraphOutput" class="output-box"></div>
+<script>
+function generate() {
+    const t = document.getElementById("topic").value.trim();
+    const s1 = document.getElementById("source1").value.trim();
+    const e1 = document.getElementById("evidence1").value.trim();
+    const w1 = document.getElementById("why1").value.trim();
+    const s2 = document.getElementById("source2").value.trim();
+    const e2 = document.getElementById("evidence2").value.trim();
+    const w2 = document.getElementById("why2").value.trim();
+    const c  = document.getElementById("commentary").value.trim();
 
-  <div id="popoverContainer"></div>
+    // -------- OUTLINE VERSION --------
+    let outline = `
+<h3><strong>Topic Sentence</strong></h3>
+${t}
 
-  <script src="script.js"></script>
+<h3><strong>Evidence 1</strong></h3>
+<strong>Source Title:</strong> ${s1}<br>
+<strong>Evidence:</strong> ${e1}<br>
+<strong>Why it matters:</strong> ${w1}<br>
+
+<h3><strong>Evidence 2</strong></h3>
+<strong>Source Title:</strong> ${s2}<br>
+<strong>Evidence:</strong> ${e2}<br>
+<strong>Why it matters:</strong> ${w2}<br>
+
+<h3><strong>Commentary / Reasoning</strong></h3>
+${c}
+`;
+
+    document.getElementById("outlineOutput").innerHTML = outline;
+
+    // -------- COLOR-CODED PARAGRAPH --------
+    let finalPara = `
+<span style="color: blue;"><strong>${t}</strong></span> 
+<span style="color: green;">${e1}</span> 
+<span style="color: darkcyan;">${w1}</span> 
+<span style="color: green;">${e2}</span> 
+<span style="color: darkcyan;">${w2}</span> 
+<span style="color: orange;">${c}</span>
+`;
+
+    document.getElementById("output").innerHTML = finalPara;
+}
+</script>
+
 </body>
 </html>
