@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-    /* Lightweight styling so <details> doesn't break your layout */
     details.instructions {
         margin-bottom: 10px;
         background: #f7f7f7;
@@ -15,18 +14,15 @@
         padding: 8px 12px;
         border: 1px solid #ddd;
     }
-
     details.instructions summary {
         cursor: pointer;
         font-weight: bold;
         padding: 4px 0;
     }
-
     details.instructions p {
         margin-top: 10px;
         line-height: 1.4;
     }
-
     section {
         margin-bottom: 25px;
     }
@@ -40,47 +36,74 @@
 <h1>IT Paragraph Builder</h1>
 <p class="intro">Complete each section below. Expand the instructions if you need help.</p>
 
-<!-- Topic Sentence -->
+<!-- Supporting Idea (Topic Sentence) -->
 <section>
     <details class="instructions">
-        <summary>Topic Sentence — instructions</summary>
-        <p>State the main idea of your paragraph in one clear sentence.</p>
+        <summary>Supporting Idea (Topic Sentence) — instructions</summary>
+        <p>
+            This is the main idea your paragraph will prove; think of it as the thesis of your paragraph that supports your main thesis. 
+            You created these in your Working Thesis tab, but they may have evolved as you found evidence and identified patterns in your 
+            Evidence Clusters. This is a single sentence in which you state the idea clearly and avoid mentioning any sources. Your supporting 
+            idea should show what the paragraph is about and how it connects to your thesis.
+        </p>
     </details>
-    <textarea id="topic" placeholder="Topic sentence..."></textarea>
+
+    <textarea id="topic" placeholder="Supporting Idea (Topic Sentence)"></textarea>
 </section>
 
 <!-- Evidence 1 -->
 <section>
     <details class="instructions">
         <summary>Evidence 1 — instructions</summary>
-        <p>Paste your strongest piece of evidence and include the source title and why it matters.</p>
+        <p>
+            Choose the strongest evidence that supports your idea. Evidence should be specific and accurate. Remember: you can use evidence 
+            from your Source Notes. Make sure it helps prove the point you are making. Do not copy long sections or summary statements from 
+            your sources; try to keep direct quotes below 35 words.
+        </p>
     </details>
 
     <input id="source1" placeholder="Source Title 1">
-    <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
-    <textarea id="why1" placeholder="Why this evidence matters..."></textarea>
+    <textarea id="evidence1" placeholder="Evidence 1"></textarea>
+
+    <h4>Why it matters</h4>
+    <p class="sub-instructions">
+        Explain briefly why this piece of evidence is useful for your paragraph. What does it show? Focus on relevance and strength, not your full analysis.
+    </p>
+    <textarea id="why1" placeholder="Why it matters"></textarea>
 </section>
 
 <!-- Evidence 2 -->
 <section>
     <details class="instructions">
         <summary>Evidence 2 — instructions</summary>
-        <p>Paste a second strong piece of evidence, also including why it matters.</p>
+        <p>
+            Choose another strong piece of evidence that supports your idea. Evidence should be specific and accurate. Remember: you can use 
+            evidence from your Source Notes. Make sure it helps prove the point you are making. Your second piece of evidence should relate 
+            to your first piece in some way. Do not copy long sections or summary statements from your sources; try to keep direct quotes below 35 words.
+        </p>
     </details>
 
     <input id="source2" placeholder="Source Title 2">
-    <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
-    <textarea id="why2" placeholder="Why this evidence matters..."></textarea>
+    <textarea id="evidence2" placeholder="Evidence 2"></textarea>
+
+    <h4>Why it matters</h4>
+    <p class="sub-instructions">
+        Explain briefly why this piece of evidence is useful for your paragraph. What does it show? Does it build on the other evidence? Focus on relevance and strength, not your full analysis.
+    </p>
+    <textarea id="why2" placeholder="Why it matters"></textarea>
 </section>
 
 <!-- Commentary -->
 <section>
     <details class="instructions">
         <summary>Commentary / Reasoning — instructions</summary>
-        <p>Explain how the evidence supports your topic and connects to your thesis.</p>
+        <p>
+            Explain how each piece of evidence helps prove your supporting idea. Do not repeat what the evidence says. Focus on the thinking: 
+            what the evidence shows, why it matters, and how it connects back to your point. This step turns information from your sources into your own argument.
+        </p>
     </details>
 
-    <textarea id="commentary" placeholder="Commentary / reasoning..."></textarea>
+    <textarea id="commentary" placeholder="Commentary / Reasoning (Why the Evidence Supports the Idea)"></textarea>
 </section>
 
 <button id="generateBtn" onclick="generate()">Generate Outline + Paragraph</button>
