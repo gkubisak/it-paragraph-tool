@@ -1,117 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IT Paragraph Builder</title>
-<link rel="stylesheet" href="styles.css"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT Paragraph Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<style>
-    details.instructions {
-        margin-bottom: 10px;
-        background: #f7f7f7;
-        border-radius: 6px;
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-    }
-    details.instructions summary {
-        cursor: pointer;
-        font-weight: bold;
-        padding: 4px 0;
-    }
-    details.instructions p {
-        margin-top: 10px;
-        line-height: 1.4;
-    }
-    section {
-        margin-bottom: 25px;
-    }
-</style>
-</head>
+  <body>
+    <div class="container">
+      <h1>IT Paragraph Builder</h1>
+      <p class="intro">
+        Follow the two steps below to build your outline and generate a
+        color-coded paragraph.
+      </p>
 
-<body>
-
-<div class="container">
-
-<h1>IT Paragraph Builder</h1>
-<p class="intro">Complete each section below. Expand the instructions if you need help.</p>
-
-<!-- Supporting Idea (Topic Sentence) -->
-<section>
-    <details class="instructions">
-        <summary>Supporting Idea (Topic Sentence) — instructions</summary>
+      <!-- ===================================================================== -->
+      <!-- STEP 1: BUILD INITIAL OUTLINE -->
+      <!-- ===================================================================== -->
+      <div class="step-section">
+        <h2>Step 1: Build Your Initial Outline</h2>
         <p>
-            This is the main idea your paragraph will prove; think of it as the thesis of your paragraph that supports your main thesis. 
-            You created these in your Working Thesis tab, but they may have evolved as you found evidence and identified patterns in your 
-            Evidence Clusters. This is a single sentence in which you state the idea clearly and avoid mentioning any sources. Your supporting 
-            idea should show what the paragraph is about and how it connects to your thesis.
+          Complete each section below. Expand the instructions if you need help.
+          When you are done, click "Generate Outline" and copy the result into
+          your Google Doc for editing.
         </p>
-    </details>
 
-    <textarea id="topic" placeholder="Supporting Idea (Topic Sentence)"></textarea>
-</section>
+        <!-- Supporting Idea (Topic Sentence) -->
+        <section>
+          <details class="instructions">
+            <summary>Supporting Idea (Topic Sentence) — instructions</summary>
+            <p>
+              This is the main idea your paragraph will prove. This is a single
+              sentence in which you state the idea clearly and avoid mentioning
+              any sources.
+            </p>
+          </details>
+          <textarea
+            id="topic"
+            placeholder="Supporting Idea (Topic Sentence)"
+          ></textarea>
+        </section>
 
-<!-- Evidence 1 -->
-<section>
-    <details class="instructions">
-        <summary>Evidence 1 — instructions</summary>
-        <p>Choose the strongest evidence that supports your idea. Evidence should be specific and accurate. Remember: you can use evidence from your Source Notes. Make sure it helps prove the point you are making. Do not copy long sections or summary statements from your sources; try to keep direct quotes below 35 words.</p>
-    </details>
+        <!-- Evidence 1 -->
+        <section>
+          <details class="instructions">
+            <summary>Evidence 1 — instructions</summary>
+            <p>
+              Choose the strongest evidence that supports your idea. Try to keep
+              direct quotes below 35 words.
+            </p>
+          </details>
+          <input id="source1" placeholder="Source Title 1" />
+          <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
+          <details class="instructions">
+            <summary>Why it matters — instructions</summary>
+            <p>
+              Explain briefly why this piece of evidence is useful for your
+              paragraph. What does it show?
+            </p>
+          </details>
+          <textarea id="why1" placeholder="Why it matters..."></textarea>
+        </section>
 
-    <input id="source1" placeholder="Source Title 1">
-    <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
+        <!-- Evidence 2 -->
+        <section>
+          <details class="instructions">
+            <summary>Evidence 2 — instructions</summary>
+            <p>
+              Choose another strong piece of evidence that supports your idea.
+              It should relate to your first piece in some way.
+            </p>
+          </details>
+          <input id="source2" placeholder="Source Title 2" />
+          <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
+          <details class="instructions">
+            <summary>Why it matters — instructions</summary>
+            <p>
+              Explain briefly why this second piece of evidence is useful. Does
+              it build on the other evidence?
+            </p>
+          </details>
+          <textarea id="why2" placeholder="Why it matters..."></textarea>
+        </section>
 
-    <details class="instructions">
-        <summary>Why it matters — instructions</summary>
-        <p>Explain briefly why this piece of evidence is useful for your paragraph. What does it show? Focus on relevance and strength, not your full analysis.</p>
-    </details>
+        <!-- Commentary -->
+        <section>
+          <details class="instructions">
+            <summary>Commentary / Reasoning — instructions</summary>
+            <p>
+              Explain how each piece of evidence helps prove your supporting
+              idea. This step turns information from your sources into your own
+              argument.
+            </p>
+          </details>
+          <textarea
+            id="commentary"
+            placeholder="Commentary / Reasoning (Why the Evidence Supports the Idea)"
+          ></textarea>
+        </section>
 
-    <textarea id="why1" placeholder="Why it matters..."></textarea>
-</section>
+        <button onclick="generateOutline()">Generate Outline</button>
 
-<!-- Evidence 2 -->
-<section>
-    <details class="instructions">
-        <summary>Evidence 2 — instructions</summary>
-        <p>Choose another strong piece of evidence that supports your idea. Evidence should be specific and accurate. Remember: you can use evidence from your Source Notes. Make sure it helps prove the point you are making. Your second piece of evidence should relate to your first piece in some way. Do not copy long sections or summary statements from your sources; try to keep direct quotes below 35 words.</p>
-    </details>
+        <!-- STEP 1 OUTPUT -->
+        <div id="outlineOutputWrapper" style="display: none">
+          <h3>Formatted Outline</h3>
+          <div id="outlineOutput" class="outputBox"></div>
+          <button onclick="copyOutline()">Copy Outline</button>
+        </div>
+      </div>
 
-    <input id="source2" placeholder="Source Title 2">
-    <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
-
-    <details class="instructions">
-        <summary>Why it matters — instructions</summary>
-        <p>Explain briefly why this piece of evidence is useful for your paragraph. What does it show? Does it build on the other evidence? Focus on relevance and strength, not your full analysis.</p>
-    </details>
-
-    <textarea id="why2" placeholder="Why it matters..."></textarea>
-</section>
-
-<!-- Commentary -->
-<section>
-    <details class="instructions">
-        <summary>Commentary / Reasoning — instructions</summary>
+      <!-- ===================================================================== -->
+      <!-- STEP 2: CREATE FINAL PARAGRAPH -->
+      <!-- ===================================================================== -->
+      <div class="step-section">
+        <h2>Step 2: Create Your Final Paragraph</h2>
         <p>
-            Explain how each piece of evidence helps prove your supporting idea. Do not repeat what the evidence says. Focus on the thinking: 
-            what the evidence shows, why it matters, and how it connects back to your point. This step turns information from your sources into your own argument.
+          After editing your outline in your Google Doc, paste the entire
+          revised outline into the box below and click "Make Color-Coded
+          Paragraph".
         </p>
-    </details>
 
-    <textarea id="commentary" placeholder="Commentary / Reasoning (Why the Evidence Supports the Idea)"></textarea>
-</section>
+        <div class="warning-note">
+          <strong>Important:</strong> For best results, do not change the bolded
+          labels (e.g., "Topic Sentence", "Evidence 1") when editing. The app
+          will try to understand minor changes, but keeping the labels is the
+          safest way to ensure it works correctly.
+        </div>
 
-<button id="generateBtn" onclick="generate()">Generate Outline + Paragraph</button>
+        <textarea
+          id="pastedOutline"
+          placeholder="Paste your edited outline here..."
+        ></textarea>
+        <button onclick="generateParagraph()">
+          Make Color-Coded Paragraph
+        </button>
 
-<!-- OUTPUTS -->
-<h2>Formatted Outline</h2>
-<div id="outlineOutput" class="outputBox"></div>
+        <!-- STEP 2 OUTPUT -->
+        <div id="paragraphOutputWrapper" style="display: none">
+          <h3>Color-Coded Final Paragraph</h3>
+          <div id="paragraphOutput" class="outputBox"></div>
+          <button onclick="copyParagraph()">Copy Paragraph</button>
+        </div>
+      </div>
+    </div>
 
-<h2>Color-Coded Final Paragraph</h2>
-<div id="output" class="outputBox"></div>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
