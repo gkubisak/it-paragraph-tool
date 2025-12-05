@@ -51,15 +51,26 @@
             </p>
           </details>
           <input id="source1" placeholder="Source Title 1" />
+
+          <!-- Tight Instruction Class Added -->
+          <p class="tight-instruction">
+            Choose evidence that actually helps prove your idea, not just
+            something interesting from your source notes.
+          </p>
+
           <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
-          <details class="instructions">
-            <summary>Why it matters — instructions</summary>
-            <p>
-              Explain briefly why this piece of evidence is useful for your
-              paragraph. What does it show?
-            </p>
-          </details>
-          <textarea id="why1" placeholder="Why it matters..."></textarea>
+
+          <!-- INDENTED SECTION FOR EVIDENCE 1 "WHY IT MATTERS" -->
+          <div class="indented-sub-section">
+            <details class="instructions">
+              <summary>Why it matters — instructions</summary>
+              <p>
+                Explain briefly why this piece of evidence is useful for your
+                paragraph. What does it show?
+              </p>
+            </details>
+            <textarea id="why1" placeholder="Why it matters..."></textarea>
+          </div>
         </section>
 
         <!-- Evidence 2 -->
@@ -72,15 +83,26 @@
             </p>
           </details>
           <input id="source2" placeholder="Source Title 2" />
+
+          <!-- Tight Instruction Class Added -->
+          <p class="tight-instruction">
+            Choose evidence that actually helps prove your idea, not just
+            something interesting from your source notes.
+          </p>
+
           <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
-          <details class="instructions">
-            <summary>Why it matters — instructions</summary>
-            <p>
-              Explain briefly why this second piece of evidence is useful. Does
-              it build on the other evidence?
-            </p>
-          </details>
-          <textarea id="why2" placeholder="Why it matters..."></textarea>
+
+          <!-- INDENTED SECTION FOR EVIDENCE 2 "WHY IT MATTERS" -->
+          <div class="indented-sub-section">
+            <details class="instructions">
+              <summary>Why it matters — instructions</summary>
+              <p>
+                Explain briefly why this second piece of evidence is useful.
+                Does it build on the other evidence?
+              </p>
+            </details>
+            <textarea id="why2" placeholder="Why it matters..."></textarea>
+          </div>
         </section>
 
         <!-- Commentary -->
@@ -88,9 +110,9 @@
           <details class="instructions">
             <summary>Commentary / Reasoning — instructions</summary>
             <p>
-              Explain how each piece of evidence helps prove your supporting
+              Explain how your evidence combines to help prove your supporting
               idea. This step turns information from your sources into your own
-              argument.
+              idea.
             </p>
           </details>
           <textarea
@@ -129,7 +151,7 @@
 
         <textarea
           id="pastedOutline"
-          placeholder="Paste your edited outline here..."
+          placeholder="Paste your completed outline here..."
         ></textarea>
         <button onclick="generateParagraph()">Convert to Paragraph</button>
 
