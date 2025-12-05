@@ -1,146 +1,167 @@
 /* General Body and Container Styles */
 body {
-    font-family: Arial, sans-serif; /* Canvas default font stack is usually preferred */
-    background: #FFFFFF; /* Updated to White per palette */
-    margin: 0;
-    padding: 0;
-    color: #2C3E50; /* Updated to Charcoal per palette */
+  font-family: Arial, sans-serif; /* Canvas default font stack is usually preferred */
+  background: #ffffff; /* Updated to White per palette */
+  margin: 0;
+  padding: 0;
+  color: #2c3e50; /* Updated to Charcoal per palette */
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #0055A5; /* Primary Blue per palette */
+  text-align: center;
+  margin-bottom: 10px;
+  color: #0055a5; /* Primary Blue per palette */
 }
 
 .intro {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 30px;
-    color: #2C3E50;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
 }
 
 h2 {
-    border-bottom: 2px solid #0055A5; /* Primary Blue border */
-    padding-bottom: 8px;
-    margin-top: 20px;
-    color: #0055A5; /* Primary Blue text */
+  border-bottom: 2px solid #0055a5; /* Primary Blue border */
+  padding-bottom: 8px;
+  margin-top: 20px;
+  color: #0055a5; /* Primary Blue text */
 }
 
 h3 {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: #008752; /* Primary Green for subsections per palette */
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #008752; /* Primary Green for subsections per palette */
 }
 
 /* Step Sections for Workflow Separation */
 .step-section {
-    background: #FFFFFF;
-    padding: 20px;
-    border-radius: 4px; /* Minimal border radius */
-    margin-bottom: 25px;
-    border: 1px solid #ddd; /* Keep a subtle border for the tool sections */
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 4px; /* Minimal border radius */
+  margin-bottom: 25px;
+  border: 1px solid #ddd; /* Keep a subtle border for the tool sections */
 }
 
 /* Form Elements - more compact */
-textarea, input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px; /* Slightly more padding for readability */
-    margin-top: 6px;
-    margin-bottom: 12px;
-    font-size: 1rem; /* 16px minimum per accessibility rules */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #2C3E50;
+textarea,
+input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px; /* Slightly more padding for readability */
+  margin-top: 6px;
+  margin-bottom: 12px;
+  font-size: 1rem; /* 16px minimum per accessibility rules */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #2c3e50;
+}
+
+/* TIGHT INSTRUCTION HELPER TEXT */
+/* Removes default paragraph margins to sit flush against inputs */
+.tight-instruction {
+  margin-top: -8px; /* Pull it closer to the input above */
+  margin-bottom: 4px; /* Small gap before the next input */
+  font-size: 0.9rem; /* Slightly smaller than body text */
+  color: #555; /* Slightly softer charcoal */
+  font-style: italic; /* Visual cue that it's a note */
 }
 
 /* Collapsible Instruction Boxes - using Palette Tints */
 details.instructions {
-    background: #E3F2FD; /* Light Blue Tint per palette */
-    border-left: 4px solid #0055A5; /* Blue accent per design patterns */
-    border-radius: 4px;
-    padding: 12px 16px;
-    margin-bottom: 15px;
+  background: #e3f2fd; /* Light Blue Tint per palette */
+  border-left: 4px solid #0055a5; /* Blue accent per design patterns */
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 15px;
 }
 
 details.instructions summary {
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem; 
-    color: #0055A5;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #0055a5;
 }
 
 details.instructions p {
-    font-size: 1rem; /* Minimum 16px */
-    line-height: 1.5;
-    margin-top: 8px;
-    color: #2C3E50;
+  font-size: 1rem; /* Minimum 16px */
+  line-height: 1.5;
+  margin-top: 8px;
+  color: #2c3e50;
+}
+
+/* INDENTED SUB-SECTIONS ("Why it matters") */
+/* Adds visual indentation with a border to connect it to the section above */
+.indented-sub-section {
+  margin-left: 20px;
+  border-left: 2px solid #ddd; /* Subtle visual guide line */
+  padding-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 /* Buttons - Primary Green or Blue */
 button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 20px 0 15px 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-    background: #008752; /* Primary Green for main actions per palette */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0 15px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #008752; /* Primary Green for main actions per palette */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 button:hover {
-    background: #006a41; /* Darker shade of green */
+  background: #006a41; /* Darker shade of green */
 }
 
 /* Secondary buttons (like Copy) can be Blue to differentiate */
 .outputBox + button {
-    background: #0055A5; /* Primary Blue */
+  background: #0055a5; /* Primary Blue */
 }
 .outputBox + button:hover {
-    background: #003e7e;
+  background: #003e7e;
 }
 
 /* Note for Step 2 */
 .warning-note {
-    background: #E6F5F0; /* Light Green Tint per palette */
-    border-left: 4px solid #008752;
-    border-radius: 4px;
-    padding: 12px;
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: #2C3E50;
+  background: #e6f5f0; /* Light Green Tint per palette */
+  border-left: 4px solid #008752;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #2c3e50;
 }
 
 /* Output Boxes */
 .outputBox {
-    padding: 15px;
-    background: #FFFFFF;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    white-space: pre-wrap; 
-    line-height: 1.5;
-    color: #2C3E50;
+  padding: 15px;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  color: #2c3e50;
 }
 
 /* Tighten spacing in the outline view */
 .outputBox div {
-    margin: 0; 
+  margin: 0;
 }
 
 /* Specific styling for the final paragraph output */
 #paragraphOutput {
-    white-space: normal; 
+  white-space: normal;
 }
