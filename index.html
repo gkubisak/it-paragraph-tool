@@ -1,150 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IT Paragraph Builder</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Paragraph Builder</title>
+<link rel="stylesheet" href="styles.css">
+</head>
 
-  <body>
-    <div class="container">
-      <h1>IT Paragraph Builder</h1>
-      <p class="intro">
-        Follow the two steps below to build your outline and generate a
-        color-coded paragraph.
-      </p>
+<body>
 
-      <!-- ===================================================================== -->
-      <!-- STEP 1: BUILD INITIAL OUTLINE -->
-      <!-- ===================================================================== -->
-      <div class="step-section">
-        <h2>Step 1: Build Your Initial Outline</h2>
-        <p>
-          Complete each section below. Expand the instructions if you need help.
-          When you are done, click "Generate Outline" and copy the result into
-          your Google Doc for editing.
-        </p>
+<div class="container">
 
-        <!-- Supporting Idea (Topic Sentence) -->
-        <section>
-          <details class="instructions">
+<h1>IT Paragraph Builder</h1>
+<p class="intro">Follow the two steps below to build your outline and generate a color-coded paragraph.</p>
+
+<!-- ===================================================================== -->
+<!-- STEP 1: BUILD INITIAL OUTLINE -->
+<!-- ===================================================================== -->
+<div class="step-section">
+    <h2>Step 1: Build Your Initial Outline</h2>
+    <p>Complete each section below. Expand the instructions if you need help. When you are done, click "Generate Outline" and copy the result into your Google Doc for editing.</p>
+
+    <!-- Supporting Idea (Topic Sentence) -->
+    <section>
+        <details class="instructions">
             <summary>Supporting Idea (Topic Sentence) — instructions</summary>
-            <p>
-              This is the main idea your paragraph will prove. This is a single
-              sentence in which you state the idea clearly and avoid mentioning
-              any sources.
-            </p>
-          </details>
-          <textarea
-            id="topic"
-            placeholder="Supporting Idea (Topic Sentence)"
-          ></textarea>
-        </section>
+            <p>This is the main idea your paragraph will prove. This is a single sentence in which you state the idea clearly and avoid mentioning any sources.</p>
+        </details>
+        <textarea id="topic" placeholder="Supporting Idea (Topic Sentence)"></textarea>
+    </section>
 
-        <!-- Evidence 1 -->
-        <section>
-          <details class="instructions">
+    <!-- Evidence 1 -->
+    <section>
+        <details class="instructions">
             <summary>Evidence 1 — instructions</summary>
-            <p>
-              Choose the strongest evidence that supports your idea. Try to keep
-              direct quotes below 35 words.
-            </p>
-          </details>
-          <input id="source1" placeholder="Source Title 1" />
-          <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
-          <details class="instructions">
+            <p>Choose the strongest evidence that supports your idea. Try to keep direct quotes below 35 words.</p>
+        </details>
+        <input id="source1" placeholder="Source Title 1">
+        <textarea id="evidence1" placeholder="Evidence 1..."></textarea>
+        <details class="instructions">
             <summary>Why it matters — instructions</summary>
-            <p>
-              Explain briefly why this piece of evidence is useful for your
-              paragraph. What does it show?
-            </p>
-          </details>
-          <textarea id="why1" placeholder="Why it matters..."></textarea>
-        </section>
+            <p>Explain briefly why this piece of evidence is useful for your paragraph. What does it show?</p>
+        </details>
+        <textarea id="why1" placeholder="Why it matters..."></textarea>
+    </section>
 
-        <!-- Evidence 2 -->
-        <section>
-          <details class="instructions">
+    <!-- Evidence 2 -->
+    <section>
+        <details class="instructions">
             <summary>Evidence 2 — instructions</summary>
-            <p>
-              Choose another strong piece of evidence that supports your idea.
-              It should relate to your first piece in some way.
-            </p>
-          </details>
-          <input id="source2" placeholder="Source Title 2" />
-          <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
-          <details class="instructions">
+            <p>Choose another strong piece of evidence that supports your idea. It should relate to your first piece in some way.</p>
+        </details>
+        <input id="source2" placeholder="Source Title 2">
+        <textarea id="evidence2" placeholder="Evidence 2..."></textarea>
+        <details class="instructions">
             <summary>Why it matters — instructions</summary>
-            <p>
-              Explain briefly why this second piece of evidence is useful. Does
-              it build on the other evidence?
-            </p>
-          </details>
-          <textarea id="why2" placeholder="Why it matters..."></textarea>
-        </section>
+            <p>Explain briefly why this second piece of evidence is useful. Does it build on the other evidence?</p>
+        </details>
+        <textarea id="why2" placeholder="Why it matters..."></textarea>
+    </section>
 
-        <!-- Commentary -->
-        <section>
-          <details class="instructions">
+    <!-- Commentary -->
+    <section>
+        <details class="instructions">
             <summary>Commentary / Reasoning — instructions</summary>
-            <p>
-              Explain how each piece of evidence helps prove your supporting
-              idea. This step turns information from your sources into your own
-              argument.
-            </p>
-          </details>
-          <textarea
-            id="commentary"
-            placeholder="Commentary / Reasoning (Why the Evidence Supports the Idea)"
-          ></textarea>
-        </section>
+            <p>Explain how each piece of evidence helps prove your supporting idea. This step turns information from your sources into your own argument.</p>
+        </details>
+        <textarea id="commentary" placeholder="Commentary / Reasoning (Why the Evidence Supports the Idea)"></textarea>
+    </section>
 
-        <button onclick="generateOutline()">Generate Outline</button>
+    <button onclick="generateOutline()">Generate Outline</button>
 
-        <!-- STEP 1 OUTPUT -->
-        <div id="outlineOutputWrapper" style="display: none">
-          <h3>Formatted Outline</h3>
-          <div id="outlineOutput" class="outputBox"></div>
-          <button onclick="copyOutline()">Copy Outline</button>
-        </div>
-      </div>
+    <!-- STEP 1 OUTPUT -->
+    <div id="outlineOutputWrapper" style="display: none;">
+        <h3>Formatted Outline</h3>
+        <div id="outlineOutput" class="outputBox"></div>
+        <button onclick="copyOutline()">Copy Outline</button>
+    </div>
+</div>
 
-      <!-- ===================================================================== -->
-      <!-- STEP 2: CREATE FINAL PARAGRAPH -->
-      <!-- ===================================================================== -->
-      <div class="step-section">
-        <h2>Step 2: Create Your Final Paragraph</h2>
-        <p>
-          After editing your outline in your Google Doc, paste the entire
-          revised outline into the box below and click "Make Color-Coded
-          Paragraph".
-        </p>
 
-        <div class="warning-note">
-          <strong>Important:</strong> For best results, do not change the bolded
-          labels (e.g., "Topic Sentence", "Evidence 1") when editing. The app
-          will try to understand minor changes, but keeping the labels is the
-          safest way to ensure it works correctly.
-        </div>
-
-        <textarea
-          id="pastedOutline"
-          placeholder="Paste your edited outline here..."
-        ></textarea>
-        <button onclick="generateParagraph()">
-          Make Color-Coded Paragraph
-        </button>
-
-        <!-- STEP 2 OUTPUT -->
-        <div id="paragraphOutputWrapper" style="display: none">
-          <h3>Color-Coded Final Paragraph</h3>
-          <div id="paragraphOutput" class="outputBox"></div>
-          <button onclick="copyParagraph()">Copy Paragraph</button>
-        </div>
-      </div>
+<!-- ===================================================================== -->
+<!-- STEP 2: CREATE FINAL PARAGRAPH -->
+<!-- ===================================================================== -->
+<div class="step-section">
+    <h2>Step 2: Create Your Final Paragraph</h2>
+    <p>After editing your outline in your Google Doc, paste the entire revised outline into the box below and click "Make Color-Coded Paragraph".</p>
+    
+    <div class="warning-note">
+        <strong>Important:</strong> For best results, do not change the bolded labels (e.g., "Topic Sentence", "Evidence 1") when editing. The app will try to understand minor changes, but keeping the labels is the safest way to ensure it works correctly.
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <textarea id="pastedOutline" placeholder="Paste your edited outline here..."></textarea>
+    <button onclick="generateParagraph()">Make Color-Coded Paragraph</button>
+
+    <!-- STEP 2 OUTPUT -->
+    <div id="paragraphOutputWrapper" style="display: none;">
+        <h3>Color-Coded Final Paragraph</h3>
+        <div id="paragraphOutput" class="outputBox"></div>
+        <button onclick="copyParagraph()">Copy Paragraph</button>
+    </div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
 </html>
